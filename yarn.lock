@@ -284,6 +284,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
+
 acorn-walk@^8.1.1, acorn-walk@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
@@ -441,7 +446,7 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
-aws-sdk@^2.1243.0:
+aws-sdk@^2.1243.0, aws-sdk@^2.1247.0:
   version "2.1247.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.1247.0.tgz#c3a74f1af3d293d460f50daadb4849dab6e0119d"
   integrity sha512-hBiVzkm5pxGchl+dn+uIApk76n3UOGuDmQBr1H2J25Ls8F7M9sNiumJby/cSjis+U+gAhl7u414SMY+ZTAJAkQ==
@@ -1941,7 +1946,7 @@ lodash.union@^4.6.0:
   resolved "https://registry.yarnpkg.com/lodash.union/-/lodash.union-4.6.0.tgz#48bb5088409f16f1821666641c44dd1aaae3cd88"
   integrity sha512-c4pB2CdGrGdjMKYLA+XiRDO7Y0PRQbm/Gzg8qMj+QH+pFVAoTp5sBpO0odL3FjoPCGjK96p6qsP+yQoiLoOBcw==
 
-lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.21:
+lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -2609,6 +2614,13 @@ serverless-esbuild@^1.23.3:
     p-map "^4.0.0"
     ramda "^0.28.0"
     semver "^7.3.7"
+
+serverless-iam-roles-per-function@^3.2.0-e97ab49:
+  version "3.2.0-e97ab49"
+  resolved "https://registry.yarnpkg.com/serverless-iam-roles-per-function/-/serverless-iam-roles-per-function-3.2.0-e97ab49.tgz#4174acd48785e7ce91cad128d8433e995ebefa56"
+  integrity sha512-D4mFiqJxNb+IRep2wMm2uz8sSjdC61/t5VNqjOAVe1WYos2PnBS3+ttAQwUqAeQ7GGPNLajDMmaOPR18J8yCMg==
+  dependencies:
+    lodash "^4.17.20"
 
 serverless@^3.0.0:
   version "3.24.0"

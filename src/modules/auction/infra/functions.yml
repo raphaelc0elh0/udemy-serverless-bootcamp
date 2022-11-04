@@ -1,0 +1,12 @@
+createAuction:
+  handler: src/modules/auction/useCases/createAuction/index.handler
+  events:
+    - http:
+        method: POST
+        path: /auction
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource:
+        - arn:aws:dynamodb:${self:provider.region}:*:table/AuctionsTable

@@ -2,16 +2,20 @@ service: auction-service
 
 plugins:
   - serverless-esbuild
+  - serverless-iam-roles-per-function
 
 provider:
   name: aws
   runtime: nodejs14.x
+  memorySize: 256
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
 
 functions:
-  - ${file(./src/modules/auction/functions.yml)}
+  - ${file(./src/modules/auction/infra/functions.yml)}
 
 resources:
-  - ${file(./src/modules/auction/resources.yml)}
+  - ${file(./src/modules/auction/infra/resources.yml)}
 
 custom:
   esbuild:
