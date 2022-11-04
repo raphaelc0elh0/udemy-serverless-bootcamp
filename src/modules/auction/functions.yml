@@ -1,0 +1,6 @@
+createAuction:
+  handler: src/functions/createAuction.handler
+  events:
+    - http:
+        method: POST
+        path: /auction

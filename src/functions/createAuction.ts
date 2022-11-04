@@ -12,7 +12,7 @@ type Auction = {
 
 const now = new Date();
 
-const createAuction: APIGatewayHandler = async (event, context) => {
+const createAuction: APIGatewayHandler = async (event) => {
   const { title } = JSON.parse(event.body) as IRequestBody;
 
   const auction: Auction = {
