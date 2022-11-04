@@ -10,14 +10,20 @@ provider:
   memorySize: 256
   stage: ${opt:stage, 'dev'}
   region: us-east-1
+  environment:
+    AUCTIONS_TABLE_NAME: ${self:custom.tables.AuctionsTable.name}
 
 functions:
-  - ${file(./src/modules/auction/infra/functions.yml)}
+  - ${file(./src/modules/auctions/functions/createAuction.yml)}
 
 resources:
-  - ${file(./src/modules/auction/infra/resources.yml)}
+  - ${file(./src/modules/auctions/resources/AuctionsTable.yml)}
 
 custom:
+  tables:
+    AuctionsTable:
+      name: !Ref AuctionsTable
+      arn: !GetAtt AuctionsTable.Arn
   esbuild:
     bundle: true
     minify: false

@@ -1,5 +1,5 @@
 createAuction:
-  handler: src/modules/auction/useCases/createAuction/index.handler
+  handler: src/modules/auctions/useCases/createAuction.handler
   events:
     - http:
         method: POST
@@ -9,4 +9,4 @@ createAuction:
       Action:
         - dynamodb:PutItem
       Resource:
-        - arn:aws:dynamodb:${self:provider.region}:*:table/AuctionsTable
+        - ${self:custom.tables.AuctionsTable.arn}
