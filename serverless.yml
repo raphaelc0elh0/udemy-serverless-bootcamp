@@ -15,6 +15,7 @@ provider:
 
 functions:
   - ${file(./src/modules/auctions/functions/createAuction.serverless.yml)}
+  - ${file(./src/modules/auctions/functions/getAuctions.serverless.yml)}
 
 resources:
   - ${file(./src/modules/auctions/resources/AuctionsTable.serverless.yml)}
