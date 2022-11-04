@@ -1,6 +1,8 @@
 import { APIGatewayHandler } from "src/lib/api-gateway";
 import { dynamodb } from "src/lib/dynamodb";
+import { middyfy } from "src/lib/middyfy";
 import { v4 as uuidV4 } from "uuid";
+import { InternalServerError } from "http-errors";
 
 interface IRequestBody {
   title: string;
@@ -14,7 +16,7 @@ type Auction = {
 };
 
 const createAuction: APIGatewayHandler = async (event) => {
-  const { title } = JSON.parse(event.body) as IRequestBody;
+  const { title } = event.body as unknown as IRequestBody;
 
   const now = new Date();
   const auction: Auction = {
@@ -24,12 +26,17 @@ const createAuction: APIGatewayHandler = async (event) => {
     createdAt: now.toISOString(),
   };
 
-  await dynamodb
-    .put({
-      TableName: process.env.AUCTIONS_TABLE_NAME,
-      Item: auction,
-    })
-    .promise();
+  try {
+    await dynamodb
+      .put({
+        TableName: process.env.AUCTIONS_TABLE_NAME,
+        Item: auction,
+      })
+      .promise();
+  } catch (error) {
+    console.error(error);
+    throw new InternalServerError(error);
+  }
 
   return {
     statusCode: 201,
@@ -37,4 +44,4 @@ const createAuction: APIGatewayHandler = async (event) => {
   };
 };
 
-export const handler = createAuction;
+export const handler = middyfy(createAuction);
