@@ -1,5 +1,4 @@
 import { injectable, inject } from "tsyringe";
-import { v4 as uuidV4 } from "uuid";
 import { InternalServerError } from "http-errors";
 import { Auction } from "../../domain/auction";
 import { IAuctionRepo } from "../../repos/IAuctionRepo";
@@ -16,13 +15,9 @@ class CreateAuctionUseCase {
   ) {}
 
   async execute({ title }: IRequest): Promise<Auction> {
-    const now = new Date();
-    const auction: Auction = {
-      id: uuidV4(),
+    const auction = Auction.create({
       title,
-      status: "OPEN",
-      createdAt: now.toISOString(),
-    };
+    });
 
     try {
       await this.auctionRepo.save(auction);
