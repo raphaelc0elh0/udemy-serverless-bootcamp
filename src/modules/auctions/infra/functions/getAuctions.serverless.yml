@@ -1,12 +1,12 @@
-createAuction:
-  handler: src/modules/auctions/useCases/createAuction.handler
+getAuctions:
+  handler: src/modules/auctions/infra/functions/getAuctions.handle
   events:
     - http:
-        method: POST
+        method: GET
         path: /auctions
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb:PutItem
+        - dynamodb:Scan
       Resource:
         - ${self:custom.tables.AuctionsTable.arn}

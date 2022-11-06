@@ -14,11 +14,11 @@ provider:
     AUCTIONS_TABLE_NAME: ${self:custom.tables.AuctionsTable.name}
 
 functions:
-  - ${file(./src/modules/auctions/functions/createAuction.serverless.yml)}
-  - ${file(./src/modules/auctions/functions/getAuctions.serverless.yml)}
+  - ${file(./src/modules/auctions/infra/functions/createAuction.serverless.yml)}
+  - ${file(./src/modules/auctions/infra/functions/getAuctions.serverless.yml)}
 
 resources:
-  - ${file(./src/modules/auctions/resources/AuctionsTable.serverless.yml)}
+  - ${file(./src/modules/auctions/infra/resources/AuctionsTable.serverless.yml)}
 
 custom:
   tables:
