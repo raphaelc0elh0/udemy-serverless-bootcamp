@@ -5,7 +5,8 @@ import httpErrorHandler from "@middy/http-error-handler";
 import httpEventNormalizer from "@middy/http-event-normalizer";
 
 export const middyfy = (handler: APIGatewayHandler) =>
-  middy(handler)
-    .use(httpJsonBodyParser())
-    .use(httpEventNormalizer())
-    .use(httpErrorHandler());
+  middy(handler).use([
+    httpJsonBodyParser(),
+    httpEventNormalizer(),
+    httpErrorHandler(),
+  ]);
