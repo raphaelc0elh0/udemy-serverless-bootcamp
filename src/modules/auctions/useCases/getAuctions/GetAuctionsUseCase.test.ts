@@ -15,7 +15,7 @@ describe("GetAuctionsUseCase", () => {
     await createAuctionUseCase.execute({ title: "Test" });
   });
 
-  it("should be able to create auction", async () => {
+  it("should be able to get all auctions", async () => {
     const response = await getAuctionsUseCase.execute();
 
     expect(response).toHaveLength(1);

@@ -1,0 +1,12 @@
+getAuction:
+  handler: src/modules/auctions/infra/functions/getAuction.handle
+  events:
+    - http:
+        method: GET
+        path: /auctions/{id}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+      Resource:
+        - ${self:custom.tables.AuctionsTable.arn}

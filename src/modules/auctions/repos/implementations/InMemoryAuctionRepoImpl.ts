@@ -11,6 +11,11 @@ class InMemoryAuctionRepoImpl implements IAuctionRepo {
   async findAll(): Promise<Auction[]> {
     return this.auctions;
   }
+
+  async find(id: string): Promise<Auction> {
+    const auction = this.auctions.find((auction) => auction.id === id);
+    return auction;
+  }
 }
 
 export { InMemoryAuctionRepoImpl };
