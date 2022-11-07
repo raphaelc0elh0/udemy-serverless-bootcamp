@@ -1,5 +1,6 @@
 import { APIGatewayHandler } from "@libs/api-gateway";
 import { dicontainer } from "@libs/dicontainer";
+import { AuctionMap } from "../../mappers/AuctionMap";
 import { CreateAuctionUseCase } from "./CreateAuctionUseCase";
 
 interface IRequestBody {
@@ -15,7 +16,7 @@ class CreateAuctionController {
 
     return {
       statusCode: 201,
-      body: JSON.stringify(auction),
+      body: JSON.stringify(AuctionMap.toDTO(auction)),
     };
   };
 }
